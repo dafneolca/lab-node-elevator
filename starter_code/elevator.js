@@ -1,10 +1,12 @@
+"use strict";
+
 class Elevator {
   constructor(){
     this.floor      = 0;
     this.MAXFLOOR   = 10;
     this.requests   = [];
     this._startInterval = null;
-
+    this.setInterval = null;
   }
 
   start() {  //SEEMS OK
@@ -13,7 +15,7 @@ class Elevator {
     }, 1000);
   }
 
-  stop() { //SEEMS OK
+  stop() { //SET TIMEOUT - SOMETHING MISSING
     set.timeOut();
   }
 
@@ -24,13 +26,27 @@ class Elevator {
 
   _passengersEnter() { }
   _passengersLeave() { }
-  floorUp() { }
-  floorDown() { }
+
+
+  floorUp() {
+    if (this.floor < this.MAXFLOOR) {
+      this.floor ++;
+    }
+  }
+
+
+
+  floorDown() {
+    if (this.floor > 0) {
+      this.floor --;
+    }
+  }
+
+
   call() { }
   log() { }
 }
 
 
-// Remember to use JavaScript functions such as setTimeout() to create the listener
 
 module.exports = Elevator;
